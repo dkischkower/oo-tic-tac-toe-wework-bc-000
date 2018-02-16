@@ -16,6 +16,14 @@ class TicTacToe
   def input_to_index(n)
     return n.to_i - 1
   end 
+  
+    def valid_move?(board, index)
+    (index >= 0 && index <= 8) && !position_taken?(board,index)
+  end
+  
+  def position_taken?(board, index)
+    !(board[index].nil? || board[index] == " ")
+  end
  
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
