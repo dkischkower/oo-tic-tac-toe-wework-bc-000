@@ -32,6 +32,10 @@ class TicTacToe
   def turn_count
     @board.count{|token| token == "X" || token == "O"}
   end
+  
+  def move(index,move)
+    @board[index] = move
+  end
  
   def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
