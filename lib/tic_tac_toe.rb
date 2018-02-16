@@ -29,12 +29,12 @@ class TicTacToe
     turn_count % 2 == 0 ? "X" : "O"
   end
 
-  def won?(board)
-    if(board.reject{|box|box=="X" || box=="O"}.size == 9)
+  def won?
+    if(@board.reject{|box|box=="X" || box=="O"}.size == 9)
       return false
     else
       WIN_COMBINATIONS.each { |combo|
-        if((board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]) && board[combo[0]] != " ")
+        if((@board[combo[0]] == @board[combo[1]] && @board[combo[1]] == @board[combo[2]]) && @board[combo[0]] != " ")
           return combo
         end
       }
@@ -42,35 +42,35 @@ class TicTacToe
     end
   end
   
-  def full?(board)
-      if(board.select{|box|box=="X" || box=="O"}.size == 9)
+  def full?
+      if(@board.select{|box|box=="X" || box=="O"}.size == 9)
           return true
       end
       return false
   end
   
-  def draw?(board)
-    if(!won?(board) && full?(board))
+  def draw?
+    if(!won? && full?)
       return true
     else
       return false
     end
   end
   
-  def over?(board)
-    if(draw?(board))
+  def over?
+    if(draw?)
       return true
-    elsif(won?(board))
+    elsif(won?)
       return true
-    elsif(!full?(board))
+    elsif(!full?)
       return false
     end
   end
   
-  def winner(board)
-    result = won?(board)
+  def winner
+    result = won?
     if(result)
-      return board[result[0]]
+      return @board[result[0]]
     else
       return nil
     end
