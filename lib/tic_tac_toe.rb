@@ -88,7 +88,7 @@ class TicTacToe
     index = input_to_index(gets.strip)
     if(valid_move?(index))
       puts "good"
-      move(,current_player)
+      move(index,current_player)
     else
       turn
     end
