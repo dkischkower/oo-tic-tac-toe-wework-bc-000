@@ -97,7 +97,6 @@ class TicTacToe
     puts "Enter input (1-9):"
     while(!over?)
       turn
-      display_board
     end
     if(!draw?)
       puts "Congratulations #{winner}!"
