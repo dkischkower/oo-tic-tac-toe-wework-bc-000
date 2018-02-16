@@ -17,12 +17,12 @@ class TicTacToe
     return n.to_i - 1
   end 
   
-  def valid_move?(board, index)
-    (index >= 0 && index <= 8) && !position_taken?(board,index)
+  def valid_move?(index)
+    (index >= 0 && index <= 8) && !position_taken?(index)
   end
   
-  def position_taken?(board, index)
-    !(board[index].nil? || board[index] == " ")
+  def position_taken?(index)
+    !(@board[index].nil? || @board[index] == " ")
   end
  
   def current_player
