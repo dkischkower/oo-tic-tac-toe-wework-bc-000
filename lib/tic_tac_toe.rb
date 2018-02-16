@@ -37,24 +37,24 @@ class TicTacToe
     @board[index] = current_player
   end
 
-  def turn(board)
+  def turn
     index = input_to_index(gets.strip)
-    if(valid_move?(board, index))
+    if(valid_move?(index))
       puts "good"
-      move(board,index,current_player(board))
+      move(index)
     else
-      turn(board)
+      turn
     end
   end
   
-  def play(board)
+  def play
     puts "Enter input (1-9):"
-    while(!over?(board))
-      turn(board)
-      display_board(board)
+    while(!over?)
+      turn
+      display_board
     end
-    if(!draw?(board))
-      puts "Congratulations #{winner(board)}!"
+    if(!draw?)
+      puts "Congratulations #{winner}!"
     else
       puts "Cat's Game!"
     end
