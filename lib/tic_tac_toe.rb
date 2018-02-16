@@ -36,7 +36,29 @@ class TicTacToe
   def move(index)
     @board[index] = current_player
   end
+
+  def turn(board)
+    index = input_to_index(gets.strip)
+    if(valid_move?(board, index))
+      puts "good"
+      move(board,index,current_player(board))
+    else
+      turn(board)
+    end
+  end
   
+  def play(board)
+    puts "Enter input (1-9):"
+    while(!over?(board))
+      turn(board)
+      display_board(board)
+    end
+    if(!draw?(board))
+      puts "Congratulations #{winner(board)}!"
+    else
+      puts "Cat's Game!"
+    end
+  end 
  
   def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
