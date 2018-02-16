@@ -80,8 +80,8 @@ class TicTacToe
     @board.count{|token| token == "X" || token == "O"}
   end
   
-  def move(index)
-    @board[index] = current_player
+  def move(index, player)
+    @board[index] = player
   end
 
   def turn
