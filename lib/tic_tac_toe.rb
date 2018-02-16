@@ -28,6 +28,53 @@ class TicTacToe
   def current_player
     turn_count % 2 == 0 ? "X" : "O"
   end
+
+  def won?(board)
+    if(board.reject{|box|box=="X" || box=="O"}.size == 9)
+      return false
+    else
+      WIN_COMBINATIONS.each { |combo|
+        if((board[combo[0]] == board[combo[1]] && board[combo[1]] == board[combo[2]]) && board[combo[0]] != " ")
+          return combo
+        end
+      }
+      return false
+    end
+  end
+  
+  def full?(board)
+      if(board.select{|box|box=="X" || box=="O"}.size == 9)
+          return true
+      end
+      return false
+  end
+  
+  def draw?(board)
+    if(!won?(board) && full?(board))
+      return true
+    else
+      return false
+    end
+  end
+  
+  def over?(board)
+    if(draw?(board))
+      return true
+    elsif(won?(board))
+      return true
+    elsif(!full?(board))
+      return false
+    end
+  end
+  
+  def winner(board)
+    result = won?(board)
+    if(result)
+      return board[result[0]]
+    else
+      return nil
+    end
+  end
  
   def turn_count
     @board.count{|token| token == "X" || token == "O"}
