@@ -87,7 +87,6 @@ class TicTacToe
   def turn
     index = input_to_index(gets.strip)
     if(valid_move?(index))
-      puts "good"
       move(index,current_player)
     else
       turn
