@@ -36,6 +36,7 @@ class TicTacToe
   def move(index)
     @board[index] = current_player
   end
+  
  
   def display_board
     puts " #{@board[0]} | #{@board[1]} | #{@board[2]} "
