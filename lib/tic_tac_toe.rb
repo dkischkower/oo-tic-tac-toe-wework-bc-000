@@ -17,7 +17,7 @@ class TicTacToe
     return n.to_i - 1
   end 
   
-    def valid_move?(board, index)
+  def valid_move?(board, index)
     (index >= 0 && index <= 8) && !position_taken?(board,index)
   end
   
